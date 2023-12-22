@@ -1,0 +1,3324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Riri</title>
+    <link rel="icon" type="image/x-icon" href="pic/heartlock.svg">
+    <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+	
+    body {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0px;
+        background-color: #262626;
+        overflow: hidden;
+        position: fixed;
+    }
+
+    #lyrics {
+        font-size: 10px;
+        line-height: 7px;
+        background: url(pic/myRIRI.webp);
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        -webkit-background-clip: text;
+        background-attachment: fixed;
+        height: 100%;
+        -webkit-text-fill-color: rgba(255, 255, 255, 0);
+    }
+    .Message {
+        position: absolute;
+        justify-content: center;
+        background-color: #FDA7DF;
+        border: rgb(36, 35, 35) solid 2px;
+        border-radius: 12px;
+        width: 550px;
+        height: 75px;
+        line-height: 75px;
+        display: flex;
+        justify-content: center;
+		bottom: 35%;
+		transition: bottom 1s ease;
+		box-shadow: 0px 0px 75px 0px #FDA7DF;
+		z-index: 1;
+    }
+	.Message:hover{
+		cursor: pointer;
+	}
+	.Message span{
+		font-size: 32px;
+	}
+	
+    .right,.left{
+        position: absolute;
+        z-index: 1;
+        display: flex;
+    }
+	.right, .left .bx{
+		font-size: 70px;
+	}
+	
+	
+    .right{
+		left: 0;
+    }
+	.left{
+		right: 0;
+	}
+	
+	#myMessage span{
+		animation: zoomup 4s linear infinite;
+  		animation-delay: calc(300ms * var(--i));
+	}
+	@keyframes zoomup {
+			0%,
+		  100% {
+			color: #FFF;
+			filter: blur(1px);
+			text-shadow: 0 0 10px #B101FF, 0 0 20px #B101FF, 0 0 30px #B101FF,
+			  0 0 40px #B101FF, 0 0 60px #B101FF, 0 0 80px #B101FF, 0 0 100px #B101FF,
+			  0 0 120px #B101FF;
+		  }
+
+		  5%,
+		  95% {
+			filter: blur(0);
+			color: #000;
+			text-shadow: none;
+		  }
+	}
+	.clickMe {
+		position: absolute;
+		justify-content: center;
+        background-color: #FDA7DF;
+        border: rgb(36, 35, 35) solid 2px;
+        border-radius: 12px;
+        width: 150px;
+        height: 50px;
+        line-height: 50px;
+        display: flex;
+        justify-content: center;
+		bottom: 35%;
+		transition: bottom 1s ease;
+		box-shadow: 0px 0px 75px 0px #FDA7DF;
+		z-index: 0;
+	}
+	.clickMe.active{
+		bottom: 30%;
+	}
+
+
+    @media screen and (max-width: 550px) {
+        body{
+            overflow: hidden;
+        }
+        .Message {
+			bottom: 25%;
+            width: 250px;
+            height: 50px;
+            line-height: 50px;
+			transition: bottom 1s ease;
+        }
+		.clickMe {
+			bottom: 25%;
+			width: 125px;
+            height: 45px;
+            line-height: 45px;
+			transition: bottom 1s ease;
+		}
+		.clickMe.active{
+			bottom: 20%;
+			
+		}
+        .Message span{
+            font-size: 22px;
+        }
+		.right, .left .bx{
+			font-size: 48px;
+		}
+		.container {
+			top: 25%;
+		}
+		.container #bebii {
+			font-size: 18px;
+		}
+    }
+	
+	
+</style>
+
+<body>
+    <div class="Message">
+		<div id="myMessage">
+			<span style="--i:1">M</span>
+			<span style="--i:2">y</span>
+			&nbsp;
+			<span style="--i:3">R</span>
+			<span style="--i:4">i</span>
+			<span style="--i:5">r</span>
+			<span style="--i:6">i</span>
+		</div>
+    </div>
+	<div class="clickMe">
+		<p id="click">click me riri!</p>
+	</div>
+	<audio id="iris">
+		<source src="audio/IRIS.mp3" type="audio/mpeg">
+	</audio>
+<p id="lyrics">
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+	
+	And I'd give up forever to touch you
+	'Cause I know that you feel me somehow
+	You're the closest to heaven that I'll ever be
+	And I don't wanna go home right now
+
+	And all I can taste is this moment
+	And all I can breathe is your life
+	When sooner or later it's over
+	I just don't wanna miss you tonight
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And you can't fight the tears that ain't coming
+	Or the moment of truth in your lies
+	When everything feels like the movies
+	Yeah, you bleed just to know you're alive
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	And I don't want the world to see me
+	'Cause I don't think that they'd understand
+	When everything's made to be broken
+	I just want you to know who I am
+
+	I just want you to know who I am
+	I just want you to know who I am
+	I just want you to know who I am
+</p>
+    <script>
+
+		$(document).ready(function(){
+			setTimeout(()=>{
+				$(".clickMe").addClass("active");
+				setTimeout(() => {
+					$(".clickMe").css("z-index", "2");
+				}, 1000);
+			}, 3000);
+		});
+		
+		
+		
+		var iris = document.getElementById("iris");
+		$(".clickMe").click(function(){
+			iris.volume = 0.2;
+			iris.play();
+			$(".clickMe").css("z-index", "0");
+			setTimeout(() => {
+				$(".clickMe").removeClass("active");
+			}, 2000);
+		});
+	</script>
+</body>
+
+</html>
